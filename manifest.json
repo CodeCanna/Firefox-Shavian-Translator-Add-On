@@ -1,0 +1,48 @@
+{
+    "manifest_version": 2,
+    "name": "Shavian Translator",
+    "author": "Seth Leonard",
+    "license": "MIT",
+    "version": "1.0",
+    "description": "Translates website text to Shavian script",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "shavian-translator@seth.im"
+        }
+    },
+    "icons": {
+        "48": "icons/icon48.png",
+        "96": "icons/icon96.png"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "webNavigation",
+        "<all_urls>",
+        "downloads"
+    ],
+    "browser_action": {
+        "default_icon": {
+            "48": "icons/icon48.png",
+            "96": "icons/icon96.png"
+        },
+        "default_title": "Shavian Translator Settings",
+        "default_popup": "settings.html"
+    },
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Alt+Shift+S"
+            },
+            "description": "Toggle Translation"
+        }
+    },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "web_accessible_resources": [
+        "dict.json",
+        "dictionary-editor.html",
+        "dictionary-editor.js"
+    ]
+}

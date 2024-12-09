@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shavian Dictionary Editor</title>
+    <style>
+        body {
+            padding: 20px;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        #results {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .input-cell input {
+            width: 100%;
+            padding: 4px;
+            box-sizing: border-box;
+        }
+        #saveStatus {
+            margin-left: 10px;
+        }
+        .add-word-form {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .add-word-form input {
+            margin-right: 10px;
+            padding: 4px;
+        }
+        .import-export {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .danger-zone {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ff0000;
+            border-radius: 4px;
+            background-color: #fff5f5;
+        }
+        .danger-button {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .danger-button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dictionary Editor</h1>
+
+    <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search words...">
+        <button id="saveButton">Save Changes</button>
+        <span id="saveStatus"></span>
+    </div>
+
+    <div class="add-word-form">
+        <h3>Add New Word</h3>
+        <input type="text" id="newWordInput" placeholder="English word">
+        <input type="text" id="newShavianInput" placeholder="Shavian translation">
+        <button id="addWordButton">Add Word</button>
+        <span id="addWordStatus"></span>
+    </div>
+
+    <div class="import-export">
+        <h3>Import/Export Dictionary Customizations</h3>
+        <button id="exportButton">Export Customizations</button>
+        <button id="importButton">Import Customizations</button>
+        <input type="file" id="importFile" style="display: none" accept=".json">
+        <span id="importExportStatus"></span>
+    </div>
+
+    <div class="danger-zone">
+        <h3>Danger Zone</h3>
+        <button id="deleteAllButton" class="danger-button">Delete All Customizations</button>
+    </div>
+
+    <div id="results">
+        <table>
+            <thead>
+                <tr>
+                    <th>English</th>
+                    <th>Shavian</th>
+                </tr>
+            </thead>
+            <tbody id="resultsBody">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="dictionary-editor.js"></script>
+</body>
+</html>
